@@ -1,0 +1,30 @@
+body {
+    background-color: #FEEED6;
+    font-family: "Arial", Verdana, serif;
+    text-align: justify;
+}
+
+span {
+    color: #67656E;
+}
+
+h1 {
+    color: #67656E;
+    font-weight: normal;
+    text-align: left;
+}
+
+.blueText {
+    color: #378DB2;
+    font-weight: bold;
+}
+
+.crossed {
+    text-decoration: line-through;
+}
+
+.text {
+    text-indent: 15px;
+    color: #67656E;
+    line-height: 20px;
+}
