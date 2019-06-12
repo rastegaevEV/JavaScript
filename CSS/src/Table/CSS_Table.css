@@ -1,16 +1,16 @@
 
-body {
+.table1 {
     font-family: Calibri, Verdana, sans-serif;
     font-size: 20px;
 }
 
-th {
+.table1 th {
     background-color: #3998DB;
     font-weight: bold;
     color: white;
 }
 
-th, td {
+.table1 th, td {
     border: 1px solid lightgrey;
     padding-top: 10px;
     padding-left: 10px;
