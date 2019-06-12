@@ -1,17 +1,20 @@
 body {
     background-color: #FEEED6;
     font-family: "Arial", Verdana, serif;
+    font-size: 15.5px;
     text-align: justify;
-}
-
-span {
     color: #67656E;
 }
 
-h1 {
-    color: #67656E;
+p {
+    padding-top: 12px;
+}
+
+.header {
+    font-size: 28px;
     font-weight: normal;
     text-align: left;
+    line-height: 31px;
 }
 
 .blueText {
@@ -24,7 +27,13 @@ h1 {
 }
 
 .text {
-    text-indent: 15px;
-    color: #67656E;
+    text-indent: 10px;
     line-height: 20px;
+}
+
+.allContent {
+    max-width: 720px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
