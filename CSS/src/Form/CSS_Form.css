@@ -1,0 +1,12 @@
+body {
+    background-color: #FEEED6;
+    font-family: "Arial", Verdana, serif;
+}
+
+.fieldName {
+    padding-top: 10px;
+    font-weight: bold;
+}
+.form {
+    max-width: 840px;/* иправить*/
+}
