@@ -16,21 +16,27 @@
 }
 
 .text-field {
-    min-width: 685px;
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
     min-height: 21px;
     padding: 7px 10px 7px 10px;
     font-size: 15px;
     border: none;
+    box-sizing: border-box;
 }
 
 .area-field {
     font-family: "Arial", Verdana, serif;
-    min-width: 685px;
-    min-height: 100px;
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;/*685 px*/
+    min-height: 120px;
     padding: 7px 10px 7px 10px;
     font-size: 14px;
     resize: vertical;
     border: none;
+    box-sizing: border-box;
 }
 
 .form-name {
@@ -57,8 +63,12 @@
     font-size: 14px;
     border: none;
     min-width: 150px;
-    margin-left: 555px;
+    float: right;
     padding: 8px;
+}
+
+body {
+    background-color: #676565;
 }
 
 .all-content {
