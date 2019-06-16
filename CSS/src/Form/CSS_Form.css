@@ -1,13 +1,12 @@
 .form {
     max-width: 710px;
-    min-height: 465px;
     background-color: #FEEED6;
     font-family: "Arial", Verdana, serif;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.fieldName {
+.field-name {
     color: #676565;
     font-size: 15px;
     padding-top: 15px;
@@ -16,9 +15,7 @@
 }
 
 .text-field {
-    max-width: 100%;
     width: 100%;
-    min-width: 100%;
     min-height: 21px;
     padding: 9px 10px 9px 10px;
     font-size: 15px;
@@ -28,9 +25,7 @@
 
 .area-field {
     font-family: "Arial", Verdana, serif;
-    max-width: 100%;
     width: 100%;
-    min-width: 100%; /*685 px*/
     min-height: 115px;
     padding: 6px 10px 6px 10px;
     font-size: 14px;
@@ -52,11 +47,10 @@
     color: #676565;
     font-size: 15px;
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 60px;
 }
 
 .submit-button {
-
     font-family: "Arial", Verdana, serif;
     background-color: #378DB2;
     color: white;
@@ -66,11 +60,14 @@
     min-width: 150px;
     float: right;
     padding: 8px;
+    margin-top: 40px;
+    cursor: pointer;
 }
 
+.submit-button:hover {
+    background-color: #3998DB;
+}
 
 .all-content {
     padding: 20px;
-    min-height: auto;
-
 }

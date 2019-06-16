@@ -7,24 +7,25 @@
     <title>Form</title>
 </head>
 <body>
-
 <div class="all-content">
     <p class="form-name">Отправить заявку</p>
     <div class="form">
-        <form action="HTML_Form.html" method="post">
-            <p class="fieldName">Ваше имя</p>
-            <label>
-                <input class="text-field" type="text" name="name" placeholder="Ваше имя *"/>
-            </label>
-            <p class="fieldName">Ваш номер телефона</p>
+        <form style="display: inline" action="HTML_Form.html" method="post">
+            <p class="field-name">Ваше имя</p>
+            <label><input class="text-field" type="text" name="name" placeholder="Ваше имя *"/></label>
+
+            <p class="field-name">Ваш номер телефона</p>
             <label><input class="text-field" type="text" name="phone" placeholder="Ваш номер телефона *"/></label>
-            <p class="fieldName">Ваш email или VK</p>
+
+            <p class="field-name">Ваш email или VK</p>
             <label><input class="text-field" type="text" name="email" placeholder="Ваш email или VK *"/></label>
-            <p class="fieldName">Комментарий</p>
+
+            <p class="field-name">Комментарий</p>
             <label><textarea class="area-field" name="comment"
                              placeholder="Комментарий (не обязательно)"></textarea></label>
+
+            <input class="submit-button" type="submit" value="Отправить заявку">
             <div class="text">Заполните и отпраьте форму, и мы перезвоним Вам по указанному номеру</div>
-            <button class="submit-button" type="submit">Отправить заявку</button>
         </form>
     </div>
 </div>
