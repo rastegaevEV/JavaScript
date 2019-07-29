@@ -5,7 +5,7 @@ var country1 = {
         population: "12 615 882"
     },
     city2: {
-        cityName: "St. Petersburg",
+        cityName: "StPetersburg",
         population: "5 383 968"
     },
     city3: {
