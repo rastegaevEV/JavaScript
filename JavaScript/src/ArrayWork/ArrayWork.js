@@ -8,39 +8,32 @@ console.log(array);
 console.log("Первые 5 - " + array.slice(0, 5));
 console.log("Последние 5 - " + array.slice(array.length - 5));
 
-function filter(array, f) {
-    var result = [];
-    for (var i = 0; i < array.length; ++i) {
-        var element = array[i];
-        if (f(element)) {
-            result.push(element);
-        }
-    }
-    return result;
+function getSumOfEvenNumbers(array) {
+    var array1 = array.filter(function (number) {
+        return number % 2 === 0;
+    });
+
+    return array1.reduce(function (sum, currentNumber) {
+        return sum + currentNumber;
+    }, 0);
 }
 
-var array2 = filter(array, function (e) {
-    return e % 2 === 0;
-});
-
-console.log("Сумма четных чисел массива = " + array2.reduce(function (sum, element) {
-    return sum + element;
-}, 0));
+console.log("Сумма четных чисел = " + getSumOfEvenNumbers(array));
 
 var longArray = [];
-for (var j = 1; j < 101; ++j) {
-    longArray.push(j);
+for (var i = 1; i <= 100; ++i) {
+    longArray.push(i);
 }
 console.log(longArray);
 
-var longArrayFiltered = filter(longArray, function (e) {
-    return e % 2 === 0
-});
-console.log(longArrayFiltered);
-
-var numbers = [];
-for (var n = 0; n < longArrayFiltered.length; ++n) {
-    numbers.push(Math.pow(longArrayFiltered[n], 2));
+function getEvenNumbersPow(longArray) {
+    return longArray.filter(function (value) {
+        return value % 2 === 0;
+    }).map(function (value) {
+        return Math.pow(value, 2);
+    });
 }
-console.log("Список квадратов четных чисел массива - " + numbers);
+
+console.log("Квадраты четных чисел" + getEvenNumbersPow(longArray));
+
 
