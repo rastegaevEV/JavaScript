@@ -1,24 +1,24 @@
 var countries = [{
     name: "Russia",
     cities: [
-        {cityName: "Moscow", population: "12 615 882"},
-        {cityName: "StPetersburg", population: "5 383 968"},
-        {cityName: "Novosibirsk", population: "1 612 833"},
-        {cityName: "Tomsk", population: "574 002"}
+        {cityName: "Moscow", population: 12615882},
+        {cityName: "StPetersburg", population: 5383968},
+        {cityName: "Novosibirsk", population: 1612833},
+        {cityName: "Tomsk", population: 574002}
     ]
 }, {
     name: "Italy",
     cities: [
-        {cityName: "Rome", population: "2 875 805"},
-        {cityName: "Milan", population: "1 351 562"},
-        {cityName: "Naples", population: "970 185"}
+        {cityName: "Rome", population: 2875805},
+        {cityName: "Milan", population: 1351562},
+        {cityName: "Naples", population: 970185}
     ]
 }, {
     name: "Germany",
     cities: [
-        {cityName: "Berlin", population: "3 520 031"},
-        {cityName: "Munich", population: "1 450 381"},
-        {cityName: "Hamburg", population: "1 787 408"}
+        {cityName: "Berlin", population: 3520031},
+        {cityName: "Munich", population: 1450381},
+        {cityName: "Hamburg", population: 1787408}
     ]
 }];
 
@@ -35,6 +35,24 @@ function getMaxCityCountCountry() {
         return value.name
     })
 }
-console.log(getMaxCityCountCountry());
 
+console.log("Страна(ы) с наибольшим количеством городов - " + getMaxCityCountCountry());
 
+function getCountryInformation(countries) {
+    var info = {};
+    countries.forEach(function (country) {
+        var name = country.name;
+        info[name] = getCountryPopulation(country);
+    });
+    return info;
+}
+
+function getCountryPopulation(country) {
+    return country.cities.map(function (value) {
+        return value.population;
+    }).reduce(function (sumPop, current) {
+        return sumPop + current;
+    })
+}
+
+console.log(getCountryInformation(countries));
