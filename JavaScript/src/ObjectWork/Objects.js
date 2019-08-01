@@ -41,18 +41,19 @@ console.log("Страна(ы) с наибольшим количеством г�
 function getCountryInformation(countries) {
     var info = {};
     countries.forEach(function (country) {
-        var name = country.name;
-        info[name] = getCountryPopulation(country);
+        info[country.name] = getCountryPopulation(country);
     });
     return info;
 }
 
+console.log(getCountryInformation(countries));
+
 function getCountryPopulation(country) {
     return country.cities.map(function (value) {
         return value.population;
-    }).reduce(function (sumPop, current) {
-        return sumPop + current;
+    }).reduce(function (sumPopulation, current) {
+        return sumPopulation + current;
     })
 }
 
-console.log(getCountryInformation(countries));
+
