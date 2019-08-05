@@ -49,10 +49,8 @@ function getCountryInformation(countries) {
 console.log(getCountryInformation(countries));
 
 function getCountryPopulation(country) {
-    return country.cities.map(function (value) {
-        return value.population
-    }).reduce(function (sumPopulation, current) {
-        return sumPopulation + current
+    return country.cities.reduce(function (sumPopulation, current) {
+        return sumPopulation + current.population
     }, 0)
 }
 
