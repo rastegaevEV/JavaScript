@@ -22,11 +22,11 @@ var countries = [{
     ]
 }];
 
-function getMaxCityCountCountry() {
+function getMaxCitiesCountCountry() {
     var maxCityCount = countries.map(function (value) {
-        return value.cities.length;
+        return value.cities.length
     }).sort(function (a, b) {
-        return b - a;
+        return b - a
     }).shift();
 
     return countries.filter(function (value) {
@@ -36,12 +36,12 @@ function getMaxCityCountCountry() {
     })
 }
 
-console.log("Страна(ы) с наибольшим количеством городов - " + getMaxCityCountCountry());
+console.log("Страна(ы) с наибольшим количеством городов - " + getMaxCitiesCountCountry());
 
 function getCountryInformation(countries) {
     var info = {};
     countries.forEach(function (country) {
-        info[country.name] = getCountryPopulation(country);
+        info[country.name] = getCountryPopulation(country)
     });
     return info;
 }
@@ -50,10 +50,10 @@ console.log(getCountryInformation(countries));
 
 function getCountryPopulation(country) {
     return country.cities.map(function (value) {
-        return value.population;
+        return value.population
     }).reduce(function (sumPopulation, current) {
-        return sumPopulation + current;
-    })
+        return sumPopulation + current
+    }, 0)
 }
 
 
