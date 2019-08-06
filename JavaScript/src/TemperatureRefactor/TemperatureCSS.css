@@ -1,3 +1,7 @@
 .allContent {
     background-color: antiquewhite;
 }
+
+.temperature-number {
+    min-width: 300px;
+}
