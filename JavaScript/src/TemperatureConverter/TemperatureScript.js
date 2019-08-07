@@ -13,10 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNaN(newTemp)) {
             temperature.value = "";
             temperature.placeholder = "Введите число";
+            tempKv.textContent = "";
+            tempFr.textContent = "";
             return;
         }
-        tempKv.value = parseInt(newTemp) + 273.15;
-        tempFr.value = parseInt(newTemp) * 1.8 + 32;
+        tempKv.textContent = parseInt(newTemp) + 273.15;
+        tempFr.textContent = parseInt(newTemp) * 1.8 + 32;
 
     })
 });
