@@ -23,16 +23,16 @@ var countries = [{
 }];
 
 function getMaxCitiesCountCountry() {
-    var maxCityCount = countries.map(function (countries) {
-        return countries.cities.length
+    var maxCitiesCount = countries.map(function (countries) {
+        return countries.cities.length;
     }).sort(function (a, b) {
-        return b - a
+        return b - a;
     }).shift();
 
     return countries.filter(function (countries) {
-        return countries.cities.length === maxCityCount
+        return countries.cities.length === maxCitiesCount;
     }).map(function (country) {
-        return country.name
+        return country.name;
     })
 }
 
@@ -50,7 +50,7 @@ console.log(getCountryInformation(countries));
 
 function getCountryPopulation(country) {
     return country.cities.reduce(function (sumPopulation, currentCity) {
-        return sumPopulation + currentCity.population
+        return sumPopulation + currentCity.population;
     }, 0)
 }
 
