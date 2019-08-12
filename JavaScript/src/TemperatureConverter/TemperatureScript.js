@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     var temperature = document.querySelector(".celsius");
     var button = document.querySelector(".button");
-    var tempFr = document.querySelector(".fahrenheit");
-    var tempKv = document.querySelector(".kelvin");
+    var tempFahrenheit = document.querySelector(".fahrenheit");
+    var tempKelvin = document.querySelector(".kelvin");
 
     button.addEventListener("click", function () {
         var newTemp = temperature.value;
@@ -13,12 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNaN(newTemp)) {
             temperature.value = "";
             temperature.placeholder = "Введите число";
-            tempKv.textContent = "";
-            tempFr.textContent = "";
+            tempKelvin.textContent = "";
+            tempFahrenheit.textContent = "";
             return;
         }
-        tempKv.textContent = parseInt(newTemp) + 273.15;
-        tempFr.textContent = parseInt(newTemp) * 1.8 + 32;
-
-    })
+        tempKelvin.textContent = parseFloat(newTemp) + 273.15;
+        tempFahrenheit.textContent = parseFloat(newTemp) * 1.8 + 32;
+    });
 });
