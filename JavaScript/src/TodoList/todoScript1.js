@@ -52,14 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
             li.appendChild(save);
         });
 
-        save.addEventListener("click", function() {
+        save.addEventListener("click", function () {
             newValue.textContent = li.children[0].value;
             li.replaceChild(newValue, li.children[0]);
             li.removeChild(save);
             li.replaceChild(edit, cancel);
         });
 
-        cancel.addEventListener("click", function() {
+        cancel.addEventListener("click", function () {
             oldValue = newValue;
             li.replaceChild(oldValue, li.children[0]);
             li.removeChild(save);
