@@ -1,80 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
     var newText = document.querySelector(".text-field");
-    var button = document.querySelector(".add");
+    var addButton = document.querySelector(".add");
     var todoList = document.querySelector(".todo-list");
 
-    button.addEventListener("click", function () {
+    addButton.addEventListener("click", function () {
         var text = newText.value;
         if (text === "") {
             return;
         }
-        var empty = document.createElement("li");
         var li = document.createElement("li");
-        li.textContent = text;
-        todoList.appendChild(empty);
-        empty.appendChild(li);
+        todoList.appendChild(li);
+
+        var node = document.createElement("span");
+        node.textContent = text;
+        li.appendChild(node);
         newText.value = "";
 
         var editText = document.createElement("input");
         editText.type = "text";
-        editText.style.display = "none";
-        empty.appendChild(editText);
+
+        var todoListLastChild = todoList.lastChild;
+        var currentNodeValue = document.createElement("span");
+        currentNodeValue.textContent = text;
 
         var clear = document.createElement("button");
-        var lastChild = todoList.lastChild;
-
         clear.textContent = "Удалить";
-        clear.setAttribute("class", "delete-button");
         clear.style.marginLeft = "10px";
-        empty.appendChild(clear);
+        li.appendChild(clear);
         clear.addEventListener("click", function () {
-            todoList.removeChild(lastChild);
+            todoList.removeChild(todoListLastChild);
         });
 
         var edit = document.createElement("button");
         edit.textContent = "Редактировать";
         edit.style.marginLeft = "10px";
-        empty.appendChild(edit);
+        li.appendChild(edit);
 
         var cancel = document.createElement("button");
         cancel.textContent = "Отмена";
-        cancel.style.display = "none";
         cancel.style.marginLeft = "10px";
-        empty.appendChild(cancel);
 
         var save = document.createElement("button");
         save.textContent = "Сохранить";
-        save.style.display = "none";
         save.style.marginLeft = "10px";
-        empty.appendChild(save);
-        empty.children[0].style.display = "inline-block";
-
-        function resetDisplay() {
-            empty.children[0].style.display = "inline-block";
-            empty.children[1].style.display = "none";
-            empty.children[2].style.display = "inline-block";
-            empty.children[3].style.display = "inline-block";
-            empty.children[4].style.display = "none";
-            empty.children[5].style.display = "none";
-        }
 
         edit.addEventListener("click", function () {
-            empty.children[1].value = "";
-            empty.children[0].style.display = "none";
-            empty.children[1].style.display = "inline-block";
-            empty.children[2].style.display = "inline-block";
-            empty.children[3].style.display = "none";
-            empty.children[4].style.display = "inline-block";
-            empty.children[5].style.display = "inline-block";
+            li.replaceChild(editText, li.children[0]);
+            li.replaceChild(cancel, edit);
+            li.appendChild(save);
         });
 
         save.addEventListener("click", function () {
-            empty.children[0].textContent = empty.children[1].value;
-            resetDisplay();
+            currentNodeValue.textContent = li.children[0].value;
+            li.replaceChild(currentNodeValue, li.children[0]);
+            li.removeChild(save);
+            li.replaceChild(edit, cancel);
         });
 
         cancel.addEventListener("click", function () {
-            resetDisplay();
+            li.replaceChild(currentNodeValue, li.children[0]);
+            li.removeChild(save);
+            li.replaceChild(edit, cancel);
         });
     });
 });
