@@ -49,6 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
         empty.appendChild(save);
         empty.children[0].style.display = "inline-block";
 
+        function resetDisplay() {
+            empty.children[0].style.display = "inline-block";
+            empty.children[1].style.display = "none";
+            empty.children[2].style.display = "inline-block";
+            empty.children[3].style.display = "inline-block";
+            empty.children[4].style.display = "none";
+            empty.children[5].style.display = "none";
+        }
+
         edit.addEventListener("click", function () {
             empty.children[1].value = "";
             empty.children[0].style.display = "none";
@@ -61,21 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         save.addEventListener("click", function () {
             empty.children[0].textContent = empty.children[1].value;
-            empty.children[0].style.display = "inline-block";
-            empty.children[1].style.display = "none";
-            empty.children[2].style.display = "inline-block";
-            empty.children[3].style.display = "inline-block";
-            empty.children[4].style.display = "none";
-            empty.children[5].style.display = "none";
+            resetDisplay();
         });
 
         cancel.addEventListener("click", function () {
-            empty.children[0].style.display = "inline-block";
-            empty.children[1].style.display = "none";
-            empty.children[2].style.display = "inline-block";
-            empty.children[3].style.display = "inline-block";
-            empty.children[4].style.display = "none";
-            empty.children[5].style.display = "none";
+            resetDisplay();
         });
     });
 });
