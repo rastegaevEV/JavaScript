@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Телефонная книга</title>
+    <link rel="stylesheet" type="text/css" href="CSS_Reset.css">
+    <link rel="stylesheet" type="text/css" href="phone.css">
+</head>
+<body>
+<h1 id="header">Телефонная книга</h1>
+
+<div class="new-contact">
+    <span>Новый контакт: </span>
+    <label for="first-name"></label><input class="text" id="first-name" type="text">
+    <label for="second-name"></label><input class="text" id="second-name" type="text">
+    <label for="phone"></label><input class="text" id="phone" type="text">
+    <input id="add-button" type="button" value="Добавить">
+</div>
+
+<div id="all-content">
+    <table id="phone-book">
+        <thead>
+        <tr>
+            <th class="cell1">№</th>
+            <th class="cell2">Фамилия</th>
+            <th class="cell3">Имя</th>
+            <th class="cell4">Номер телефона</th>
+            <th class="cell5"></th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="phoneScript.js"></script>
+</body>
+</html>
