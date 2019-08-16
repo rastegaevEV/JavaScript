@@ -2,12 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var newText = document.querySelector(".text-field");
     var addButton = document.querySelector(".add");
     var todoList = document.querySelector(".todo-list");
+    var message = document.getElementById("message");
 
     addButton.addEventListener("click", function () {
         var text = newText.value;
         if (text === "") {
+            message.style.display = "block";
             return;
         }
+        message.style.display = "none";
         var li = document.createElement("li");
         todoList.appendChild(li);
 
@@ -20,12 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
         editText.type = "text";
 
         var todoListLastChild = todoList.lastChild;
-        var currentNodeValue = document.createElement("span");
-        currentNodeValue.textContent = text;
 
         var clear = document.createElement("button");
         clear.textContent = "Удалить";
-        clear.style.marginLeft = "10px";
+        clear.setAttribute("class", "button");
         li.appendChild(clear);
         clear.addEventListener("click", function () {
             todoList.removeChild(todoListLastChild);
@@ -33,34 +34,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var edit = document.createElement("button");
         edit.textContent = "Редактировать";
-        edit.style.marginLeft = "10px";
+        edit.setAttribute("class", "button");
         li.appendChild(edit);
 
         var cancel = document.createElement("button");
         cancel.textContent = "Отмена";
-        cancel.style.marginLeft = "10px";
+        cancel.setAttribute("class", "button");
 
         var save = document.createElement("button");
         save.textContent = "Сохранить";
-        save.style.marginLeft = "10px";
+        save.setAttribute("class", "button");
+
+        var currentNodeValue = document.createElement("span");
+        currentNodeValue.textContent = text;
 
         edit.addEventListener("click", function () {
-            li.replaceChild(editText, li.children[0]);
+            console.log(li.firstChild);
+            li.replaceChild(editText, li.firstChild);
+            li.firstChild.value = currentNodeValue.textContent;
             li.replaceChild(cancel, edit);
             li.appendChild(save);
+            console.log(li.firstChild);
         });
 
         save.addEventListener("click", function () {
-            currentNodeValue.textContent = li.children[0].value;
-            li.replaceChild(currentNodeValue, li.children[0]);
+            if (editText.value === "") {
+                message.style.display = "block";
+                return;
+            }
+            message.style.display = "none";
+            currentNodeValue.textContent = editText.value;
+            li.replaceChild(currentNodeValue, editText);
             li.removeChild(save);
             li.replaceChild(edit, cancel);
         });
 
         cancel.addEventListener("click", function () {
-            li.replaceChild(currentNodeValue, li.children[0]);
+            li.replaceChild(currentNodeValue, editText);
             li.removeChild(save);
             li.replaceChild(edit, cancel);
+            message.style.display = "none";
         });
     });
 });
