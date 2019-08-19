@@ -5,6 +5,12 @@
 
 #message {
     display: none;
-    font-size: 24px;
+    font-size: 18px;
+    color: firebrick;
+}
+
+.edit-message {
+    display: none;
+    font-size: 18px;
     color: firebrick;
 }

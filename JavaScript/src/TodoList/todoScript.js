@@ -24,9 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var todoListLastChild = todoList.lastChild;
 
+        var editMessage = document.createElement("span");
+        editMessage.className = "edit-message";
+        editMessage.textContent = "Введите текст заметки";
+
         var clear = document.createElement("button");
         clear.textContent = "Удалить";
-        clear.setAttribute("class", "button");
+        clear.className = "button";
+        li.appendChild(editMessage);
         li.appendChild(clear);
         clear.addEventListener("click", function () {
             todoList.removeChild(todoListLastChild);
@@ -34,35 +39,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var edit = document.createElement("button");
         edit.textContent = "Редактировать";
-        edit.setAttribute("class", "button");
+        edit.className = "button";
         li.appendChild(edit);
 
         var cancel = document.createElement("button");
         cancel.textContent = "Отмена";
-        cancel.setAttribute("class", "button");
+        cancel.className = "button";
 
         var save = document.createElement("button");
         save.textContent = "Сохранить";
-        save.setAttribute("class", "button");
+        save.className = "button";
 
         var currentNodeValue = document.createElement("span");
         currentNodeValue.textContent = text;
 
         edit.addEventListener("click", function () {
-            console.log(li.firstChild);
             li.replaceChild(editText, li.firstChild);
             li.firstChild.value = currentNodeValue.textContent;
             li.replaceChild(cancel, edit);
             li.appendChild(save);
-            console.log(li.firstChild);
         });
 
         save.addEventListener("click", function () {
             if (editText.value === "") {
-                message.style.display = "block";
+                editMessage.style.display = "inline-block";
                 return;
             }
-            message.style.display = "none";
+            editMessage.style.display = "none";
             currentNodeValue.textContent = editText.value;
             li.replaceChild(currentNodeValue, editText);
             li.removeChild(save);
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
             li.replaceChild(currentNodeValue, editText);
             li.removeChild(save);
             li.replaceChild(edit, cancel);
-            message.style.display = "none";
+            editMessage.style.display = "none";
         });
     });
 });
