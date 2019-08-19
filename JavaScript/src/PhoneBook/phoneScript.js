@@ -11,23 +11,33 @@ $(document).ready(function () {
         var tdFirst = document.createElement("td");
         var tdSecond = document.createElement("td");
         var tdPhone = document.createElement("td");
-        var trDelete = document.createElement("button");
+        var tdDelete = document.createElement("button");
 
         tdNumber.value = tableRows.children.length;
         tdFirst.textContent = firstName.value;
         tdSecond.textContent = secondName.value;
         tdPhone.textContent = phone.value;
-        trDelete.textContent = "X";
+        tdDelete.textContent = "X";
+        tdDelete.className = "delete";
 
         tr.appendChild(tdNumber);
         tr.appendChild(tdFirst);
         tr.appendChild(tdSecond);
         tr.appendChild(tdPhone);
-        tr.appendChild(trDelete);
+        tr.appendChild(tdDelete);
         tableRows.appendChild(tr);
         console.log(tableRows.children.length);
-        trDelete.addEventListener("click", function () {
+
+        $('#phone-book tbody tr').each(function(i) {
+            var number = i + 1;
+            $(this).find('td:first').text(number);
+        });
+        tdDelete.addEventListener("click", function () {
             tableRows.removeChild(tr);
+            $('#phone-book tbody tr').each(function(i) {
+                var number = i + 1;
+                $(this).find('td:first').text(number);
+            });
         });
     });
 });
