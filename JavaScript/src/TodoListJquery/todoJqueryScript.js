@@ -19,7 +19,8 @@ $(document).ready(function () {
         note.appendTo(li);
         newText.val("");
 
-        var editText = $("<input type='text' class='button'>");
+        var editText = $("<input type='text' class='edit-text'>");
+        editText.appendTo(li).hide();
 
         var editMessage = $("<span class='edit-message'>Введите текст заметки</span>");
 
@@ -34,23 +35,22 @@ $(document).ready(function () {
         li.append(edit);
 
         var cancel = $("<input type='button' class='button' value='Отмена'>");
+        li.append(cancel);
+        cancel.hide();
 
         var save = $("<input type='button' class='button' value='Сохранить'>");
+        li.append(save);
+        save.hide();
 
-        var currentNodeValue = $("<span>");
-        currentNodeValue.text(text);
+        var currentNoteValue = $("<span>");
+        currentNoteValue.text(text);
 
         edit.on("click", function () {
-            note.remove();
-            editText.prependTo(li);
-            editText.val(text);
-            //li.replaceChild(editText, li.firstChild);
-            //li.firstChild.value = currentNodeValue.textContent;
-            edit.remove();
-            cancel.appendTo(li);
-            save.appendTo(li);
-            //li.replaceChild(cancel, edit);
-            // li.appendChild(save);
+            note.hide();
+            editText.val(currentNoteValue.text()).show();
+            edit.hide();
+            cancel.show();
+            save.show();
         });
 
         save.on("click", function () {
@@ -59,25 +59,20 @@ $(document).ready(function () {
                 return;
             }
             editMessage.hide();
-            note.text(editText.val()).prependTo(li);
-            editText.remove();
-            save.remove();
-            cancel.remove();
-            li.append(edit);
-            // li.replaceChild(currentNodeValue, editText);
-            // li.removeChild(save);
-            // li.replaceChild(edit, cancel);
+            currentNoteValue.text(editText.val());
+            note.text(currentNoteValue.text()).show();
+            editText.hide();
+            save.hide();
+            cancel.hide();
+            edit.show();
         });
 
         cancel.on("click", function () {
-            editText.remove();
-            note.text(text).prependTo(li);
-            save.remove();
-            cancel.remove();
-            li.append(edit);
-            //li.replaceChild(currentNodeValue, editText);
-            //li.removeChild(save);
-            // li.replaceChild(edit, cancel);
+            editText.hide();
+            note.text(currentNoteValue.text()).show();
+            save.hide();
+            cancel.hide();
+            edit.show();
             editMessage.hide();
         });
     });
