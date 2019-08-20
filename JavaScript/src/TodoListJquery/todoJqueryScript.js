@@ -3,6 +3,7 @@ $(document).ready(function () {
     var addButton = $("#add-button");
     var todoList = $("#todo-list");
     var message = $("#message");
+    var editMessageWarning = $("<span class='edit-message'>Введите текст заметки</span>");
 
     addButton.on("click", function () {
         var text = newText.val();
@@ -13,6 +14,7 @@ $(document).ready(function () {
         message.hide();
         var li = $("<li>");
         li.appendTo(todoList);
+        editMessageWarning.hide().appendTo(todoList);
 
         var note = $("<span>");
         note.text(text);
@@ -22,10 +24,8 @@ $(document).ready(function () {
         var editText = $("<input type='text' class='edit-text'>");
         editText.appendTo(li).hide();
 
-        var editMessage = $("<span class='edit-message'>Введите текст заметки</span>");
 
         var clear = $("<input type='button' class='button' value='Удалить'>");
-        li.append(editMessage);
         li.append(clear);
         clear.on("click", function () {
             li.remove();
@@ -35,12 +35,10 @@ $(document).ready(function () {
         li.append(edit);
 
         var cancel = $("<input type='button' class='button' value='Отмена'>");
-        li.append(cancel);
-        cancel.hide();
+        cancel.hide().appendTo(li);
 
         var save = $("<input type='button' class='button' value='Сохранить'>");
-        li.append(save);
-        save.hide();
+        save.hide().appendTo(li);
 
         var currentNoteValue = $("<span>");
         currentNoteValue.text(text);
@@ -55,10 +53,10 @@ $(document).ready(function () {
 
         save.on("click", function () {
             if (editText.val() === "") {
-                editMessage.show();
+                editMessageWarning.show();
                 return;
             }
-            editMessage.hide();
+            editMessageWarning.hide();
             currentNoteValue.text(editText.val());
             note.text(currentNoteValue.text()).show();
             editText.hide();
@@ -73,7 +71,7 @@ $(document).ready(function () {
             save.hide();
             cancel.hide();
             edit.show();
-            editMessage.hide();
+            editMessageWarning.hide();
         });
     });
 });
