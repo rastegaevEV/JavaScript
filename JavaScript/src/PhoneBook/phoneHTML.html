@@ -11,10 +11,17 @@
 
 <div class="new-contact">
     <span>Новый контакт: </span>
-    <label for="first-name"></label><input class="text" id="first-name" type="text">
-    <label for="second-name"></label><input class="text" id="second-name" type="text">
-    <label for="phone"></label><input class="text" id="phone" type="text">
+    <label for="first-name"></label><input class="text" id="first-name" type="text" placeholder="Введите имя">
+    <label for="second-name"></label><input class="text" id="second-name" type="text" placeholder="Введите фамилию">
+    <label for="phone"></label><input class="text" id="phone" type="text" placeholder="Введите номер телефона">
     <label><input id="add-button" type="button" value="Добавить"></label>
+</div>
+
+<div class="fill-message">
+    <span>Не все поля заполнены</span>
+</div>
+<div class="phone-message">
+    <span>В номере телефона не может быть букв</span>
 </div>
 
 <div id="all-content">

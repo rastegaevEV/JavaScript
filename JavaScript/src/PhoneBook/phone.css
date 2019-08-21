@@ -15,14 +15,14 @@
 }
 
 #all-content {
-
+    margin: 0 auto;
 }
 
 #phone-book th {
     background-color: #3998DB;
     font-weight: bold;
     color: white;
-    border: 1px solid white;
+    border: 1px solid lightgrey;
     padding: 10px;
     text-align: left;
 }
@@ -60,10 +60,35 @@
 }
 
 .new-contact {
-    margin: 30px 250px 30px;
+    margin: 20px 250px 20px;
     text-align: center;
 }
 
 .delete {
-    margin-left: 12px;
+    margin: 0 auto;
+    text-align: center;
+    width: 30px;
+    height: 30px;
 }
+
+.fill-message {
+    display: none;
+    margin: 0 auto;
+    color: firebrick;
+    font-size: 18px;
+    text-align: center;
+}
+
+.phone-message {
+    display: none;
+    margin: 0 auto;
+    color: firebrick;
+    font-size: 18px;
+    text-align: center;
+}
+
+.red-border {
+    border: 2px solid red;
+}
+
+
