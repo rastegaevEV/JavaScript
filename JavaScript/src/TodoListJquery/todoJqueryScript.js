@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    var newText = $("#new-text");
-    var addButton = $("#add-button");
-    var todoList = $("#todo-list");
-    var message = $("#message");
+    var newText = $(".new-text");
+    var addButton = $(".add-button");
+    var todoList = $(".todo-list");
+    var message = $(".message");
     var editMessageWarning = $("<span class='edit-message'>Введите текст заметки</span>");
 
     addButton.on("click", function () {
@@ -23,7 +23,6 @@ $(document).ready(function () {
 
         var editText = $("<input type='text' class='edit-text'>");
         editText.appendTo(li).hide();
-
 
         var clear = $("<input type='button' class='button' value='Удалить'>");
         li.append(clear);

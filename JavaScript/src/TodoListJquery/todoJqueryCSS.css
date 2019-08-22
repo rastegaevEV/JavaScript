@@ -3,7 +3,7 @@
     margin-bottom: 5px;
 }
 
-#message {
+.message {
     display: none;
     font-size: 18px;
     color: firebrick;
