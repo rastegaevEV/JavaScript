@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class Main {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public static void main(String[] args) {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/store?serverTimezone=Europe/Moscow&useSSL=false", "root", "728894")){
